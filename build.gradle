@@ -1,0 +1,26 @@
+apply plugin: 'groovy'
+
+sourceSets {
+    jobs {
+        groovy {
+            srcDirs 'jobs'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.jenkins-ci.org/releases/' }
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.10'
+    compile 'org.jenkins-ci.plugins:job-dsl-core:1.63'
+
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testCompile 'info.solidsoft.spock:spock-global-unroll:0.5.1'
+
+    jobsCompile sourceSets.main.output
+    jobsCompile configurations.compile
+    jobsRuntime configurations.runtime
+}
