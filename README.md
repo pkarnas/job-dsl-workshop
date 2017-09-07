@@ -20,3 +20,17 @@ Eclipse import:
 (on Windows double click `gradlew-eclipse.bat`)
 
 and later: `File -> Import -> Existing Project Into Workspace`
+
+### File structure
+
+    .
+    ├── jobs                    # DSL script files
+    ├── resources               # resources for DSL scripts (optional)
+    ├── src
+    │   ├── main
+    │   │   ├── groovy          # support classes
+    │   │   └── resources
+    │   │       └── idea.gdsl   # IDE support for IDEA
+    │   └── test
+    │       └── groovy          # specs
+    └── build.gradle            # build file
